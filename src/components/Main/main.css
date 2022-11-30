@@ -17,3 +17,39 @@
     background-color: transparent;
 }
 
+/* Filter Area */
+
+.search_filter_area{
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    justify-content:center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.search_filter_area div{
+    padding: 0.5rem 1rem;
+} 
+
+/* .search_filter_area .seperator{
+    border-left: 1px solid #dadce0;
+    height: 3rem;
+} */
+.search_filter_area div>label{
+    line-height: 1.5rem;
+    color:#ccc;
+    font-weight: 500;
+}
+.search_filter_area div select,input{
+    padding: 0.5rem;
+    border:none;
+    border-radius: 0.2rem;
+    background: #ccc;
+    font-weight: 600;
+}
+
+.search_filter_area .search{
+    background-color: blue;
+    color:#fff;
+}

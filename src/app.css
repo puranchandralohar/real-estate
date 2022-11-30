@@ -9,6 +9,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: #eee;
 }
 
 .flex{
@@ -17,6 +18,8 @@ body{
 
 .btn{
     padding: 0.5rem 1rem;
+    border:none;
+    outline: none;
     border-radius: 0.5rem;
     transition: all .6s ease;
 }
