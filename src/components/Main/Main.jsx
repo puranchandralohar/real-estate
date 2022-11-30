@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import './main.css'
 
 export const Main = () => {
+
+  const [data,setData] = useState([])
+
+  useEffect(()=>{
+    let url = `https://raw.githubusercontent.com/puranchandralohar/apis/main/property.json`;
+    axios.get(url)
+    .then((response)=>{
+      let result = response.data
+      setData(result)
+    })
+
+  },[])
+
+  console.log(data)
+
   return (
     <div className='main-container'>
         <section className="search_group flex">
@@ -24,12 +40,10 @@ export const Main = () => {
                 <option value="Mumbai">Kolkata</option>
               </select>
             </div>
-            <div className='seperator'></div>
             <div>
               <label htmlFor='movedate'>When</label>
               <input type="date" name="movein_date" id="movedate"/>
             </div>
-            <div className='seperator'></div>
             <div>
               <label htmlFor='price'>Price</label>
                 <select name="price" id="price">
@@ -39,7 +53,6 @@ export const Main = () => {
                 <option value="500-1000">5000-10000</option>
               </select>
             </div>
-            <div className='seperator'></div>
             <div>
               <label htmlFor='property'>Property Type</label>
               <select name="property" id="property">
@@ -50,10 +63,32 @@ export const Main = () => {
                 <option value="Bunglow">Bunglow</option>
               </select>
             </div>
-            <div className='seperator'></div>
-            <div>
-              <button className='btn search'>Search</button>
-            </div>           
+              <button className='btn search'>Search</button>           
+        </section>
+
+        <section className='property_list'>
+            {data.map(({id,name,img,price,address,beds,bathrooms,area})=>{
+              return(
+                <div className="property flex" key={id}>
+                  <div className="property_image">
+                    <img src={img} alt={name} />
+                  </div>
+                  <div className="property_price">
+                    <span className='property_price_tag'><strong>&#8377; {price}</strong><small>/month</small></span>
+                  </div>
+                  <div className="property_name">
+                    <h4>{name}</h4>
+                    <p>{address}</p>
+                  </div>
+                  <div className="amenities flex">
+                    <p><i class="fa-solid fa-bed"></i> {beds} Beds</p>
+                    <p><i class="fa-solid fa-bath"></i> {bathrooms} Bathrooms</p>
+                    <p><i class="fa-solid fa-chart-area"></i> {area} m<sup>2</sup></p>
+                  </div>
+                </div>
+
+              )
+            })}
         </section>
     </div>
   )

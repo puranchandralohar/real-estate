@@ -3,7 +3,6 @@
     max-width: 75%;
     margin:5% auto;
     padding: 1rem;
-    border:1px solid #1e1e1e;
 }
 
 .search_group{
@@ -20,25 +19,16 @@
 /* Filter Area */
 
 .search_filter_area{
-    margin-top: 1rem;
-    padding: 1rem 1.5rem;
-    justify-content:center;
+    padding: 0.3rem;
     align-items: center;
-    border-radius: 0.5rem;
-    background-color: #fff;
 }
 
 .search_filter_area div{
     padding: 0.5rem 1rem;
 } 
-
-/* .search_filter_area .seperator{
-    border-left: 1px solid #dadce0;
-    height: 3rem;
-} */
 .search_filter_area div>label{
     line-height: 1.5rem;
-    color:#ccc;
+    color:#5d5e5f;
     font-weight: 500;
 }
 .search_filter_area div select,input{
@@ -50,6 +40,53 @@
 }
 
 .search_filter_area .search{
-    background-color: blue;
+    background-color: #4b4b7c;
     color:#fff;
+}
+
+/* Each Property */
+
+.property_list{
+    padding: 1rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-evenly;
+    gap:2rem;
+}
+
+.property{
+    flex-direction: column;
+}
+
+.property img{
+    width: 250px;
+    height: 150px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.property_price,
+.property_name,
+.amenities{
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+}
+.property_price_tag strong{
+    color:#6161bb;
+}
+.property_name p{
+    color: #5d5e5f;
+    font-size: 0.8rem;
+}
+
+.amenities{
+    align-items: baseline;
+    justify-content: center;
+    gap:1rem;
+}
+.amenities p{
+    font-size: 0.7rem;
+    color:#5d5e5f
+
 }
