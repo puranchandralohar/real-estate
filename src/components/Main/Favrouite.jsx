@@ -1,14 +1,18 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { LikeButton } from "./LikeButton";
+import UserContext from "../Context";
+import { useContext } from "react";
 
 import "./propertylist.css";
 
-export const PropertyList = ({ data }) => {
+export const Favrouite = () => {
+  const { mylist, setMylist } = useContext(UserContext);
+
   return (
     <>
+      <h1>My Favrouits</h1>
       <section className="property_list">
-        {data.map(
+        {mylist.map(
           ({ id, name, img, price, address, beds, bathrooms, area }) => {
             return (
               <div className="property flex" key={id}>
@@ -26,7 +30,7 @@ export const PropertyList = ({ data }) => {
                     <h4>{name}</h4>
                     <p>{address}</p>
                   </div>
-                  <LikeButton id={id} data={data} />
+                  <LikeButton />
                 </div>
                 <div className="amenities flex">
                   <p>
