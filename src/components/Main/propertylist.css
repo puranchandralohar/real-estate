@@ -1,0 +1,44 @@
+.property_list{
+    padding: 1rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-evenly;
+    gap:2rem;
+}
+
+.property{
+    flex-direction: column;
+}
+
+.property img{
+    width: 250px;
+    height: 150px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.property_price,
+.property_name,
+.amenities{
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+}
+.property_price_tag strong{
+    color:#6161bb;
+}
+.property_name p{
+    color: #5d5e5f;
+    font-size: 0.8rem;
+}
+
+.amenities{
+    align-items: baseline;
+    justify-content: center;
+    gap:1rem;
+}
+.amenities p{
+    font-size: 0.7rem;
+    color:#5d5e5f
+
+}

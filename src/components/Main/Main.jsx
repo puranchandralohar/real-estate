@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { PropertyList } from './PropertyList'
 import axios from 'axios'
 
 import './main.css'
@@ -6,6 +7,14 @@ import './main.css'
 export const Main = () => {
 
   const [data,setData] = useState([])
+  const [storeData, setStoreData] = useState([])
+  const [filterData, setFilterData] = useState({
+    "id":"",
+    "name":"",
+    "address":"",
+    "location": "",
+    "category": "",
+  })
 
   useEffect(()=>{
     let url = `https://raw.githubusercontent.com/puranchandralohar/apis/main/property.json`;
@@ -13,11 +22,30 @@ export const Main = () => {
     .then((response)=>{
       let result = response.data
       setData(result)
+      setStoreData(result)
+      setFilterData(result)
     })
 
   },[])
 
-  console.log(data)
+  const handleLocation = (e) => {
+    setFilterData({ ...filterData, [e.target.name]: e.target.value })
+
+  }
+
+  const handleProperty = (e)=>{
+    setFilterData({...filterData,[e.target.name]:e.target.value})
+  }
+
+
+  const handleSearch =()=>{
+    const makeChanges = storeData.filter((item)=>{
+      if(filterData.location === item.location || filterData.category === item.category){
+          return item;
+      }
+    })
+    setData(makeChanges)
+  }
 
   return (
     <div className='main-container'>
@@ -31,13 +59,13 @@ export const Main = () => {
         <section className='search_filter_area flex'>
             <div>
               <label htmlFor='location'>Location</label>
-              <select name="location" id="location">
+              <select name="location" id="location" onChange={handleLocation}>
               <option value="" disabled selected>Choose Location</option>
                 <option value="Mumbai">Mumbai</option>
-                <option value="Mumbai">Pune</option>
-                <option value="Mumbai">Hydrabad</option>
-                <option value="Mumbai">Ranchi</option>
-                <option value="Mumbai">Kolkata</option>
+                <option value="Pune">Pune</option>
+                <option value="Hydrabad">Hydrabad</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Kolkata">Kolkata</option>
               </select>
             </div>
             <div>
@@ -48,14 +76,14 @@ export const Main = () => {
               <label htmlFor='price'>Price</label>
                 <select name="price" id="price">
                 <option value="500-1000">500-1000</option>
-                <option value="500-1000">1000-2000</option>
-                <option value="500-1000">2000-5000</option>
-                <option value="500-1000">5000-10000</option>
+                <option value="1000-2000">1000-2000</option>
+                <option value="2000-5000">2000-5000</option>
+                <option value="5000-10000">5000-10000</option>
               </select>
             </div>
             <div>
-              <label htmlFor='property'>Property Type</label>
-              <select name="property" id="property">
+              <label htmlFor='category'>Property Type</label>
+              <select name="category" id="category" onChange={handleProperty}>
                 <option value="House">House</option>
                 <option value="Single-Family Home">Single Family Home</option>
                 <option value="Town House">Town House</option>
@@ -63,33 +91,9 @@ export const Main = () => {
                 <option value="Bunglow">Bunglow</option>
               </select>
             </div>
-              <button className='btn search'>Search</button>           
+              <button className='btn search' onClick={handleSearch}>Search</button>           
         </section>
-
-        <section className='property_list'>
-            {data.map(({id,name,img,price,address,beds,bathrooms,area})=>{
-              return(
-                <div className="property flex" key={id}>
-                  <div className="property_image">
-                    <img src={img} alt={name} />
-                  </div>
-                  <div className="property_price">
-                    <span className='property_price_tag'><strong>&#8377; {price}</strong><small>/month</small></span>
-                  </div>
-                  <div className="property_name">
-                    <h4>{name}</h4>
-                    <p>{address}</p>
-                  </div>
-                  <div className="amenities flex">
-                    <p><i class="fa-solid fa-bed"></i> {beds} Beds</p>
-                    <p><i class="fa-solid fa-bath"></i> {bathrooms} Bathrooms</p>
-                    <p><i class="fa-solid fa-chart-area"></i> {area} m<sup>2</sup></p>
-                  </div>
-                </div>
-
-              )
-            })}
-        </section>
+        <PropertyList data={data}/>
     </div>
   )
 }
