@@ -1,44 +1,65 @@
-.property_list{
+.property_list {
     padding: 1rem 0rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content:space-evenly;
-    gap:2rem;
+    justify-content: space-evenly;
+    gap: 2rem;
+    background: #fff;
 }
 
-.property{
+.property {
     flex-direction: column;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 0 0.2rem #999898;
 }
 
-.property img{
-    width: 250px;
+.property img {
+    width: 260px;
     height: 150px;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
 }
 
 .property_price,
 .property_name,
-.amenities{
+.amenities {
     padding: 0.5rem 1rem;
     background-color: #fff;
 }
-.property_price_tag strong{
-    color:#6161bb;
+
+.property_name {
+    align-items: center;
+    justify-content: space-between;
 }
-.property_name p{
+
+.property_price_tag strong {
+    color: #6161bb;
+}
+
+.property_name p {
     color: #5d5e5f;
     font-size: 0.8rem;
 }
 
-.amenities{
+.like_btn {
+    padding: 0.4rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #afb0b1;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.amenities {
     align-items: baseline;
     justify-content: center;
-    gap:1rem;
+    gap: 1rem;
 }
-.amenities p{
-    font-size: 0.7rem;
-    color:#5d5e5f
 
+.amenities p {
+    font-size: 0.7rem;
+    color: #5d5e5f;
 }
