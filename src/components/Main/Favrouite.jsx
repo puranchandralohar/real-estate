@@ -10,7 +10,6 @@ export const Favrouite = () => {
 
   return (
     <>
-      <h1>My Favrouits</h1>
       <section className="property_list">
         {mylist.map(
           ({ id, name, img, price, address, beds, bathrooms, area }) => {
