@@ -5,9 +5,9 @@
     border: 1px solid #afb0b1;
     cursor: pointer;
     transition: all 0.5s ease;
-    background-color:#6161bbde;
+    background-color: #f1ebeb;
 }
 
 .active{
-    background-color: #f1ebeb;
+    background-color:#6161bbde;
 }
