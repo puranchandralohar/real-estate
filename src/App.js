@@ -4,15 +4,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Favrouite } from './components/Main/Favrouite';
+import UserContext from './components/Context';
 
 import './app.css'
-import UserContext from './components/Context';
 
 
 function App() {
+
   const [mylist, setMylist] = useState([])
   return (
-    <>
     <UserContext.Provider value={{mylist,setMylist}}>
     <BrowserRouter>
       <Routes>
@@ -23,7 +23,6 @@ function App() {
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>
-    </>
   );
 }
 

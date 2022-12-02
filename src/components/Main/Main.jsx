@@ -27,9 +27,10 @@ export const Main = () => {
     setFilterData({ ...filterData, [e.target.name]: e.target.value });
   };
 
+  // Filter Functionallity----
+
   const handleSearch = () => {
     let splitPrice = filterData.price.split("-");
-    console.log(filterData);
     const makeChanges = storeData.filter((item) => {
       const date1 = new Date(filterData.date);
       const date2 = new Date(item.date);
@@ -57,7 +58,7 @@ export const Main = () => {
     <div className="main-container">
       <section className="search_group flex">
         <h2 className="search-title">Search Properties to rent</h2>
-        <input type="text" name="search" id="search" onBlur={handleSelect} />
+        <input type="text" name="search" id="search" onBlur={handleSelect} placeholder="Search"/>
       </section>
       <section className="search_filter_area flex">
         <div>
@@ -95,8 +96,8 @@ export const Main = () => {
           <label htmlFor="category">Property Type</label>
           <select name="category" id="category" onChange={handleSelect}>
             <option defaultValue="House">House</option>
-            <option defaultValue="Single-Family Home">
-              Single Family Home
+            <option defaultValue="Cottage">
+            Cottage
             </option>
             <option defaultValue="Town House">Town House</option>
             <option defaultValue="Farmhouse">Farmhouse</option>

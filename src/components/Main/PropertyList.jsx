@@ -11,7 +11,7 @@ export const PropertyList = ({ data }) => {
         {data.map(
           ({ id, name, img, price, address, beds, bathrooms, area }) => {
             return (
-              <div className="property flex" key={id}>
+              <div className="property flex" key={name}>
                 <div className="property_image">
                   <img src={img} alt={name} />
                 </div>
