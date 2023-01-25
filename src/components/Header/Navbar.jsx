@@ -24,7 +24,7 @@ export const Navbar = () => {
           <Link to="">
             Resources <i className="fa-solid fa-angle-down" />
           </Link>
-          <Link to="/favrouite">Favrouite</Link>
+          <Link to="/favrouite"><i class="fa-solid fa-heart-circle-check" /></Link>
         </nav>
         <div className="btn_groups flex">
           <Link to="" className="btn login">
