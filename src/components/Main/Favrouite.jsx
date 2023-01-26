@@ -10,7 +10,7 @@ export const Favrouite = () => {
   return (
     <>
       <section className="property_list">
-        {mylist.map(
+        {mylist.length !==0 ?mylist.map(
           ({ id, name, img, price, address, beds, bathrooms, area }) => {
             return (
               <div className="property flex" key={id}>
@@ -47,7 +47,7 @@ export const Favrouite = () => {
               </div>
             );
           }
-        )}
+        ):"Empty"}
       </section>
     </>
   );
