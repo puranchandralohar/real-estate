@@ -20,7 +20,7 @@ export const Main = () => {
       let result = response.data;
       setData(result);
       setStoreData(result);
-    });
+    })
   }, []);
 
   const handleSelect = (e) => {
@@ -108,7 +108,10 @@ export const Main = () => {
           Search
         </button>
       </section>
-      <PropertyList data={data} />
+      {
+        data ?<PropertyList data={data} /> : "Please Wait its Loading......"
+      }
+      
     </div>
   );
 };

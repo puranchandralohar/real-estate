@@ -10,6 +10,7 @@ export const LikeButton = ({ id, data }) => {
     const { mylist, setMylist } = useContext(UserContext)
 
     const [color,setColor] = useState(false)
+
     const handleLikes = (id) => {  
         setColor(!color) 
         const fav = data.find(item => item.id === id);

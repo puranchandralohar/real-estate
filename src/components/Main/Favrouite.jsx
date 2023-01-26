@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { LikeButton } from "./LikeButton";
 import UserContext from "../Context";
 import { useContext } from "react";
 
@@ -29,7 +28,7 @@ export const Favrouite = () => {
                     <h4>{name}</h4>
                     <p>{address}</p>
                   </div>
-                  <LikeButton />
+                  <button className="remove_like"><i class="fa-solid fa-circle-minus" /></button>
                 </div>
                 <div className="amenities flex">
                   <p>
