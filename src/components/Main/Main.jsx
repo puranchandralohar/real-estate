@@ -14,6 +14,8 @@ export const Main = () => {
     price: "",
   });
 
+//   API Fetching---
+  
   useEffect(() => {
     let url = `https://raw.githubusercontent.com/puranchandralohar/apis/main/property.json`;
     axios.get(url).then((response) => {
